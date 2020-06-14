@@ -56,6 +56,16 @@
       !>  (dec:caesar-cipher (enc:caesar-cipher "HI" 2) 2)
   ==
 
+++  test-character-codes
+  ;:  weld
+    %+  expect-eq
+      !>  97
+      !>  (enc:character-codes 'a')
+    %+  expect-eq
+      !>  'a'
+      !>  (dec:character-codes 97)
+  ==
+
 ++  test-dot-product
   %+  expect-eq
     !>  --3

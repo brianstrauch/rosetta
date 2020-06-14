@@ -40,10 +40,20 @@
   ++  enc
     |=  [msg=tape key=@ud]
     ^-  tape
-    (turn `(list @)`msg |=(n=@ud (add (~(sum fo 26) (sub n 'A') key) 'A')))
+    %+  turn  `(list @)`msg
+    |=  n=@ud
+    (add (~(sum fo 26) (sub n 'A') key) 'A')
   ++  dec
     |=  [msg=tape key=@ud]
     (enc msg (sub 26 key))
+  --
+
+++  character-codes
+  |%
+  ++  enc
+    |=  char=@t  `@ud`char
+  ++  dec
+    |=  code=@ud  `@t`code
   --
 
 ++  dot-product
