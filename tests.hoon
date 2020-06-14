@@ -36,6 +36,10 @@
       !>  "HI"
       !>  (dec:caesar-cipher (enc:caesar-cipher "HI" 2) 2)
   ==
+++  test-dot-product
+  %+  expect-eq
+    !>  --3
+    !>  (dot-product [--1 --3 -5 ~] [--4 -2 -1 ~])
 ++  test-even-or-odd
   ;:  weld
     %+  expect-eq

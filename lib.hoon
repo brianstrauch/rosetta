@@ -28,11 +28,18 @@
   ++  enc
     |=  [msg=tape key=@ud]
     ^-  tape
-    (turn `(list @)`msg |=(n=@ud (add (mod (add (sub n 'A') key) 26) 'A')))
+    (turn `(list @)`msg |=(n=@ud (add (~(sum fo 26) (sub n 'A') key) 'A')))
   ++  dec
     |=  [msg=tape key=@ud]
     (enc msg (sub 26 key))
   --
+::
+++  dot-product
+  |=  [a=(list @sd) b=(list @sd)]
+  =|  sum=@sd
+  |-
+  ?:  |(?=(~ a) ?=(~ b))  sum
+  $(a t.a, b t.b, sum (sum:si sum (pro:si i.a i.b)))
 ::
 ++  even-or-odd
   |=  n=@ud
