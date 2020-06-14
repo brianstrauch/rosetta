@@ -28,6 +28,21 @@
       !>  (array-length ["apple" "orange" ~])
   ==
 
+++  test-binary-search
+  ;:  weld
+    %+  expect-eq
+      !>  0
+      !>  (binary-search ~[0 1 2] 0)
+    %+  expect-eq
+      !>  1
+      !>  (binary-search ~[0 1 2] 1)
+    %+  expect-eq
+      !>  2
+      !>  (binary-search ~[0 1 2] 2)
+    %-  expect-fail
+      |.  (binary-search ~[0 1 2] 3)
+  ==
+
 ++  test-caesar-cipher
   ;:  weld
     %+  expect-eq
