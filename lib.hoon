@@ -1,5 +1,5 @@
 |%
-::
+
 ++  one-hundred-doors
   |^
   =/  doors=(list ?)  (reap 100 %.n)
@@ -19,10 +19,10 @@
   ++  xor
     |=  [a=? b=?]  =((mix a b) 1)
   --
-::
+
 ++  array-length
   |=  arr=(list *)  (lent arr)
-::
+
 ++  caesar-cipher
   |%
   ++  enc
@@ -33,17 +33,26 @@
     |=  [msg=tape key=@ud]
     (enc msg (sub 26 key))
   --
-::
+
 ++  dot-product
   |=  [a=(list @sd) b=(list @sd)]
   =|  sum=@sd
   |-
   ?:  |(?=(~ a) ?=(~ b))  sum
   $(a t.a, b t.b, sum (sum:si sum (pro:si i.a i.b)))
-::
+
 ++  even-or-odd
   |=  n=@ud
   ?:  =((mod n 2) 0)
     "even"
   "odd"
+
+++  fibonacci-sequence
+  |=  n=@ud
+  =/  a=@ud  0
+  =/  b=@ud  1
+  |-
+  ?:  =(n 0)  a
+  $(a b, b (add a b), n (dec n))
+
 --
